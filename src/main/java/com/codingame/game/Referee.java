@@ -31,6 +31,9 @@ public class Referee extends AbstractReferee {
                 Config.MAP_RING_COUNT_MAX = 5;
             }
             // level 3 = interactions, big map, multiple hills
+            if (leagueLevel >= 4) {
+                Config.SCORES_IN_IO = true;
+            }
 
             Config.takeFrom(gameManager.getGameParameters());
 

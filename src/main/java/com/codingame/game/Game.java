@@ -96,9 +96,11 @@ public class Game {
     public List<String> getCurrentFrameInfoFor(Player player) {
         List<String> lines = new ArrayList<>();
         Player other = getOpponent(player);
+        if (Config.SCORES_IN_IO) {
+            lines.add(Serializer.join(player.points, other.points));
+        }
         for (CubeCoord coord : board.coords) {
             Cell cell = board.get(coord);
-
             lines.add(Serializer.join(cell.getRichness(), cell.getAnts(player), cell.getAnts(other)));
         }
 

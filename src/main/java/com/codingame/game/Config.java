@@ -34,6 +34,7 @@ public class Config {
     public static boolean LOSING_ANTS_CANT_CARRY = true;
     public static boolean FORCE_SINGLE_HILL = false;
     public static boolean ENABLE_EGGS = true;
+    public static boolean SCORES_IN_IO = false;
 
     public static void takeFrom(Properties params) {
         FIGHTING_ANTS_KILL = getFromParams(params, "FIGHTING_ANTS_KILL", FIGHTING_ANTS_KILL);

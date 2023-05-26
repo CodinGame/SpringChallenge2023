@@ -545,6 +545,9 @@ Note: when calculating how many ants to dispatch to a beacon, the result will be
 		</div>
 		<div class="blk">
 			<div class="title">Entrées pour Un Tour de Jeu</div>
+			<!-- BEGIN level4 -->
+			<span class="statement-lineno">Ligne suivante :</span> <const>2</const> entiers <var>myScore</var> et <var>oppScore</var> pour la quantité de cristaux détenue par chaque joueur.<br>
+			<!-- END -->
 			<span class="statement-lineno">Les <var>numberOfCells</var> lignes suivantes :</span> une ligne par cellule,
 			ordonnées par <var>index</var>. <const>3</const> entiers par cellule :<br>
 			<ul>

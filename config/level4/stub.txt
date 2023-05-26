@@ -1,0 +1,26 @@
+read numberOfCells:int
+loop numberOfCells read type:int initialResources:int neigh0:int neigh1:int neigh2:int neigh3:int neigh4:int neigh5:int
+read numberOfBases:int
+loopline numberOfBases myBaseIndex:int
+loopline numberOfBases oppBaseIndex:int
+
+gameloop
+read myScore:int oppScore:int
+loop numberOfCells read resources:int myAnts:int oppAnts:int
+
+write WAIT
+
+INPUT
+neigh0: the index of the neighbouring cell for each direction
+type: 0 for empty, 1 for eggs, 2 for crystal
+numberOfCells: amount of hexagonal cells in this map
+numberOfHills: amount of bases for each player
+myHillIndex: a cell with a friendly base
+oppHillIndex: a cell with an enemy base
+initialResources: the initial amount of eggs/crystals on this cell
+resources: the current amount of eggs/crystals on this cell
+myAnts: the amount of your ants on this cell
+oppAnts: the amount of opponent ants on this cell
+
+OUTPUT
+WAIT | LINE <sourceIdx> <targetIdx> <strength> | BEACON <cellIdx> <strength> | MESSAGE <text>
