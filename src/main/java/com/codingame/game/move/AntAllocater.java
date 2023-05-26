@@ -14,7 +14,7 @@ import com.codingame.game.Cell;
 
 class CellData {
     Cell cell;
-    int ants, beacons, wiggleRoom;
+    long ants, beacons, wiggleRoom;
 
     public CellData(Cell cell, int playerIdx) {
         this.cell = cell;
@@ -60,22 +60,22 @@ public class AntAllocater {
 
     private static List<AntAllocation> innerAllocateAnts(List<CellData> antCells, List<CellData> beaconCells, int playerIdx, Board board) {
         List<AntAllocation> allocations = new ArrayList<>();
-        int antSum = 0;
+        long antSum = 0;
         for (CellData cell : antCells) {
             antSum += cell.ants;
         }
 
-        int beaconSum = 0;
+        long beaconSum = 0;
         for (CellData cell : beaconCells) {
             beaconSum += cell.beacons;
         }
 
         double scalingFactor = (double) antSum / beaconSum;
         for (CellData cell : beaconCells) {
-            int highBeaconValue = (int) Math.ceil(cell.beacons * scalingFactor);
-            int lowBeaconValue = (int) (cell.beacons * scalingFactor);
+            long highBeaconValue = (long) Math.ceil(cell.beacons * scalingFactor);
+            long lowBeaconValue = (long) (cell.beacons * scalingFactor);
             cell.beacons = Math.max(1, lowBeaconValue);
-            cell.wiggleRoom = highBeaconValue - cell.beacons; 
+            cell.wiggleRoom = highBeaconValue - cell.beacons;
             //XXX: wiggleRoom will equals 1 if the beaconValue got rounded down
         }
 
@@ -102,12 +102,12 @@ public class AntAllocater {
         while (!allPairs.isEmpty()) {
             for (AntBeaconPair pair : allPairs) {
                 CellData antCell = pair.getAnt();
-                int antCount = antCell.ants;
+                long antCount = antCell.ants;
                 CellData beaconCell = pair.getBeacon();
-                int beaconCount = beaconCell.beacons;
-                int wiggleRoom = beaconCell.wiggleRoom;
+                long beaconCount = beaconCell.beacons;
+                long wiggleRoom = beaconCell.wiggleRoom;
 
-                int maxAlloc = stragglers ? Math.min(antCount, beaconCount + wiggleRoom) : Math.min(antCount, beaconCount);
+                int maxAlloc = (int) (stragglers ? Math.min(antCount, beaconCount + wiggleRoom) : Math.min(antCount, beaconCount));
                 if (maxAlloc > 0) {
                     allocations.add(
                         new AntAllocation(
