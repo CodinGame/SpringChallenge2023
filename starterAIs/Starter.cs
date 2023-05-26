@@ -13,15 +13,16 @@ namespace StarterForEvent
 
     class Cell
     {
+		public int Index { get; set; }
         public CellType Type { get; set; }
         public int Resource { get; set; }
         public IList<int> Neighbors { get; set; } = new List<int>();
         public int MyAnts { get; set; }
         public int OppAnts { get; set; }
 
-        public void AddNeighbor(params int[] neighborIndexs)
+        public void AddNeighbor(params int[] neighborIndices)
         {
-            foreach (var neighborIndex in neighborIndexs.Where(n => n > -1))
+            foreach (var neighborIndex in neighborIndices.Where(n => n > -1))
             {
                 Neighbors.Add(neighborIndex);
             }
@@ -40,6 +41,7 @@ namespace StarterForEvent
                 inputs = Console.ReadLine().Split(' ');
                 var cell = new Cell
                 {
+					Index = i,
                     Type = (CellType)int.Parse(inputs[0]), // 0 for empty, 1 for eggs, 2 for food
                     Resource = int.Parse(inputs[1]) // the initial amount of eggs/crystals on this cell
                 };
@@ -49,8 +51,8 @@ namespace StarterForEvent
             }
 
             int numberOfBases = int.Parse(Console.ReadLine());
-            var myBaseIndexs = Console.ReadLine().Split(' ').Take(numberOfBases).Select(int.Parse);
-            var oppBaseIndexs = Console.ReadLine().Split(' ').Take(numberOfBases).Select(int.Parse);
+            var myBaseIndices = Console.ReadLine().Split(' ').Take(numberOfBases).Select(int.Parse);
+            var oppBaseIndices = Console.ReadLine().Split(' ').Take(numberOfBases).Select(int.Parse);
 
             // game loop
             while (true)
