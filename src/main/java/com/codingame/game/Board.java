@@ -255,7 +255,15 @@ public class Board {
         Cell startCell = cells.get(start);
         maxPathValues[start] = startCell.getAnts(playerIdx);
         distanceFromStart[start] = 0;
-        if (startCell.getAnts(playerIdx) > 0) {
+        int startAnts = startCell.getAnts(playerIdx);
+        if (interruptedByFight) {
+            int myForce = getAttackPower(start, playerIdx);
+            int otherForce = getAttackPower(start, 1 - playerIdx);
+            if (otherForce > myForce) {
+                startAnts = 0;
+            }
+        }
+        if (startAnts > 0) {
             queue.add(start);
         }
 
