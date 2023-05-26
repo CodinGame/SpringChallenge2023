@@ -169,7 +169,7 @@ public class Game {
                 Cell anthillCell = board.get(anthill);
 
                 // Dijkstra from food to anthill
-                LinkedList<Cell> bestPathToHill = board.getBestPath(foodCell, anthillCell, player.getIndex(), Config.LOSING_ANTS_CANT_MOVE);
+                LinkedList<Cell> bestPathToHill = board.getBestPath(foodCell, anthillCell, player.getIndex(), Config.LOSING_ANTS_CANT_CARRY);
 
                 if (bestPathToHill != null) {
                     allPaths.add(bestPathToHill);
