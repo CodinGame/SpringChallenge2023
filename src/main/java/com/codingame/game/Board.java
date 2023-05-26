@@ -152,11 +152,12 @@ public class Board {
 
             List<Integer> neighbours = getNeighbours(head);
             if (playerIdx != null) {
-                // Order by amount of friendly ants, then id of cell
+                // Order by amount of friendly ants, then beacon strength, then id of cell
                 neighbours = neighbours.stream()
                     .sorted(
                         Comparator
                             .comparing((Integer idx) -> -get(idx).getAnts(playerIdx))
+                            .thenComparing((Integer idx) -> -get(idx).getBeaconPower(playerIdx))
                             .thenComparing(Function.identity())
                     )
                     .collect(Collectors.toList());
