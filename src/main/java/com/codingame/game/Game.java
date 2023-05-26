@@ -144,6 +144,7 @@ public class Game {
         doFights();
         doBuild();
         animation.catchUp();
+        board.resetAttackCache();
         doScore();
         animation.catchUp();
         gameTurn++;
