@@ -399,9 +399,7 @@ Note: when calculating how many ants to dispatch to a beacon, the result will be
 					<li>
 						Ants move.
 					</li>
-					<li>
-						Crystal is harvested and points are scored.
-					</li>
+					
 					<!-- BEGIN level2 level3 level4 -->
 					<!-- BEGIN level2 -->
 					<li style="color: #7cc576; background: rgba(124, 197, 118, 0.1)">
@@ -417,6 +415,9 @@ Note: when calculating how many ants to dispatch to a beacon, the result will be
 					</li>
 					<!-- END -->
 					<!-- END -->
+				<li>
+					Crystal is harvested and points are scored.
+				</li>
 				</ol>
 				<br>
 				<!-- BEGIN level3 level4 -->
