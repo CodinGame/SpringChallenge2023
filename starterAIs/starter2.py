@@ -120,10 +120,16 @@ class Game:
     def regular_input(self):
         for i in range(len(self.cells)):
             self.cells[i].update(*[int(j) for j in input().split()])
+            if self.cells[i].contents == Contents.CRYSTAL and self.cells[i].resources == 0 and i in self.crystal_ids:
+                self.crystal_ids.remove(i)
+            if self.cells[i].contents == Contents.EGG and self.cells[i].resources == 0 and i in self.egg_ids:
+                self.egg_ids.remove(i)
 
     def report_status(self):
         Debug.log(f"My bases: {self.my_base_ids}")
         Debug.log(f"Enemy bases: {self.enemy_base_ids}")
+        Debug.log(f"Crystals: {self.crystal_ids}")
+        Debug.log(f"Eggs: {self.egg_ids}")
         for cell in self.cells.values():
             Debug.log(cell)
 
