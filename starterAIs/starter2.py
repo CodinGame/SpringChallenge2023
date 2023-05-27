@@ -49,11 +49,11 @@ class Action:
         return " ".join(str(i) for i in [self.action_type.value, *self.params])
 
     @staticmethod
-    def put_beacon(cell_id, strength):
+    def put_beacon(cell_id, strength=1):
         return Action(Actions.PUT_BEACON, [str(i) for i in [cell_id, strength]])
 
     @staticmethod
-    def build_line(source_id, target_id, strength):
+    def build_line(source_id, target_id, strength=1):
         return Action(Actions.BUILD_LINE, [str(i) for i in [source_id, target_id, strength]])
 
     @staticmethod
