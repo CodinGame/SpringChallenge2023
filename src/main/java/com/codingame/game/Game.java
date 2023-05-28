@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Random;
+import java.util.function.IntFunction;
 import java.util.stream.Collectors;
 
 import com.codingame.event.Animation;
@@ -401,11 +402,31 @@ public class Game {
                 p.setScore(-1);
             }
         });
-        endScreenModule.setScores(
-            players.stream()
-                .mapToInt(p -> p.getScore())
-                .toArray()
-        );
+
+        if (players.get(0).getScore() == players.get(1).getScore() && players.get(0).getScore() != -1) {
+            players.stream().forEach(p -> {
+                p.setScore(getAntTotal(p));
+            });
+            endScreenModule.setScores(
+                players.stream()
+                    .mapToInt(p -> p.getScore())
+                    .toArray(),
+                players.stream()
+                    .map(p -> String.format("%d points and %d ants", p.points, p.getScore()))
+                    .toArray(length -> new String[length])
+            );
+        } else {
+            endScreenModule.setScores(
+                players.stream()
+                    .mapToInt(p -> p.getScore())
+                    .toArray()
+            );
+        }
+
+    }
+
+    private int getAntTotal(Player p) {
+        return board.cells.stream().mapToInt(cell -> cell.getAnts(p)).sum();
     }
 
     public List<EventData> getViewerEvents() {
