@@ -433,7 +433,7 @@ Note: when calculating how many ants to dispatch to a beacon, the result will be
 						<div class="text">
 							<ul style="padding-top:0; padding-bottom: 0;">
 								<li>You have over half of the total <b>crystal</b> on the map.</li>
-								<li>You have more <b>crystal</b> than your opponent after <const>100</const> turns.
+								<li>You have more <b>crystal</b> than your opponent after <const>100</const> turns, or more <b>ants</b> if tied.
 								</li>
 							</ul>
 						</div>
@@ -591,7 +591,7 @@ Note: when calculating how many ants to dispatch to a beacon, the result will be
 					<!-- END -->
 					<!-- BEGIN level3 level4 -->
 					<const>1</const> ≤ <var>numberOfBases</var> ≤ <const>2</const><br>
-					<var>numberOfCells</var> &lt; <const>50</const><br>
+					<var>numberOfCells</var> &lt; <const>100</const><br>
 					<!-- END -->
 					Response time per turn ≤ <const>100</const>ms<br>
 					Response time for the first turn ≤ <const>1000</const>ms

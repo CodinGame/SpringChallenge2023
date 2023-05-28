@@ -115,7 +115,7 @@
 					</li>
 				</ul>
 				<p>La quantité de <var>ressources</var> contenues dans chaque cellule est également donnée, et peut changer au
-					cours de la partie lorsque les fourmies <b>récoltent</b> les cellules.</p>
+					cours de la partie lorsque les fourmis <b>récoltent</b> les cellules.</p>
 
 				Une cellule peut également contenir une <b>base</b>. Les fourmis des deux joueurs commenceront la partie sur ces
 				bases.
@@ -437,7 +437,7 @@ Note: when calculating how many ants to dispatch to a beacon, the result will be
 						<div class="text">
 							<ul style="padding-top:0; padding-bottom: 0;">
 								<li>Vous avez plus de la moitié des <b>cristaux</b> sur la carte.</li>
-								<li>Vous avez plus de <b>cristaux</b> que votre adversaire après <const>100</const> tours.
+								<li>Vous avez plus de <b>cristaux</b> que votre adversaire après <const>100</const> tours, ou plus de <b>fourmis</b> en cas d'égalité.
 								</li>
 							</ul>
 						</div>
@@ -588,7 +588,7 @@ Note: when calculating how many ants to dispatch to a beacon, the result will be
 					<!-- END -->
 					<!-- BEGIN level3 level4 -->
 					<const>1</const> ≤ <var>numberOfBases</var> ≤ <const>2</const><br>
-					<var>numberOfCells</var> &lt; <const>50</const><br>
+					<var>numberOfCells</var> &lt; <const>100</const><br>
 					<!-- END -->
 					Temps de réponse par tour ≤ <const>100</const>ms<br>
 					Temps de réponse pour le premier tour ≤ <const>1000</const>ms
