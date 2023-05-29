@@ -380,22 +380,20 @@ public class Game {
     }
 
     private boolean checkGameOver() {
-        int initialFood = board.getInitialFood();
+        int remainingFood = board.getRemainingFood();
 
         if (board.getRemainingFood() == 0) {
             gameSummaryManager.addNoMoreFood();
             return true;
-        } else if (players.get(0).points >= initialFood / 2 || players.get(1).points >= initialFood / 2) {
-            if (players.get(0).getPoints() > players.get(1).getPoints()) {
-                gameSummaryManager.addNotEnoughFoodLeft(players.get(0));
-            } else if (players.get(0).getPoints() < players.get(1).getPoints()) {
-                gameSummaryManager.addNotEnoughFoodLeft(players.get(1));
-            } else {
-                gameSummaryManager.addNotEnoughFoodLeft();
-            }
+        }
+        if (players.get(0).points >= players.get(1).points + remainingFood) {
+            gameSummaryManager.addNotEnoughFoodLeft(players.get(0));
+            return true;
+        } else if (players.get(1).points >= players.get(0).points + remainingFood) {
+            gameSummaryManager.addNotEnoughFoodLeft(players.get(1));
             return true;
         }
-        return board.getRemainingFood() == 0;
+        return false;
     }
 
     public void onEnd() {
