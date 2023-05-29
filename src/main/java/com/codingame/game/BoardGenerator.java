@@ -251,6 +251,8 @@ public class BoardGenerator {
                 board.get(idx).placeAnts(player, antsPerHill);
             });
         });
+        
+        board.initialFood = board.getRemainingFood();
 
     }
 

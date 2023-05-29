@@ -432,7 +432,7 @@ Note: when calculating how many ants to dispatch to a beacon, the result will be
 						<div class="title">Victory Conditions</div>
 						<div class="text">
 							<ul style="padding-top:0; padding-bottom: 0;">
-								<li>You have over half of the total <b>crystal</b> on the map.</li>
+								<li>You have harvested at least half of the total <b>crystal</b> on the map before your opponent.</li>
 								<li>You have more <b>crystal</b> than your opponent after <const>100</const> turns, or more <b>ants</b> if tied.
 								</li>
 							</ul>

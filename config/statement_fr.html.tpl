@@ -436,7 +436,7 @@ Note: when calculating how many ants to dispatch to a beacon, the result will be
 						<div class="title">Conditions de Victoire</div>
 						<div class="text">
 							<ul style="padding-top:0; padding-bottom: 0;">
-								<li>Vous avez plus de la moitié des <b>cristaux</b> sur la carte.</li>
+								<li>Vous avez obtenu au moins la moitié des <b>cristaux</b> sur la carte avant votre adversaire.</li>
 								<li>Vous avez plus de <b>cristaux</b> que votre adversaire après <const>100</const> tours, ou plus de <b>fourmis</b> en cas d'égalité.
 								</li>
 							</ul>

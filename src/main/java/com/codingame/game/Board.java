@@ -194,8 +194,8 @@ public class Board {
         return getBestPath(start.getIndex(), end.getIndex(), playerIdx, interruptedByFight);
     }
 
-    //TODO: cache
     List<Map<Integer, Integer>> attackCache;
+    int initialFood;
 
     private int getAttackPower(int cellIdx, int playerIdx) {
         Integer cachedAttackPower = attackCache.get(playerIdx).get(cellIdx);
@@ -357,6 +357,10 @@ public class Board {
         return map.values().stream()
             .filter(cell -> cell.getType() == CellType.EGG && cell.getRichness() > 0)
             .collect(Collectors.toList());
+    }
+
+    public int getInitialFood() {
+        return initialFood;
     }
 
 }

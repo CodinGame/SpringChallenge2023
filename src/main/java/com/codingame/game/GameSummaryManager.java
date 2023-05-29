@@ -146,9 +146,14 @@ public class GameSummaryManager {
             + "\n\n";
     }
 
-    public void addNotEnoughFoodLeft(int remainingFood, Player player) {
+    public void addNotEnoughFoodLeft(Player player) {
         lines.add(
-            player.getNicknameToken() + " has harvested more than half the crystals. Game over!"
+            player.getNicknameToken() + " has harvested at least half the crystals. Game over!"
+        );
+    }
+    public void addNotEnoughFoodLeft() {
+        lines.add(
+            "At least half of the crystals have been harvested. Game over!"
         );
     }
 
