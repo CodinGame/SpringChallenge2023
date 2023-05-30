@@ -1386,7 +1386,7 @@ export class ViewModule {
           return dto.events
             .filter(event => event.type === ev.BUILD)
             .filter(event => event.playerIdx === playerIndex)
-            .filter(event => last(event.path) === cellIndex)
+            .filter(() => this.globalData.anthills[playerIndex].includes(cellIndex))
             .reduce((buildAmount, event) => buildAmount + event.amount, 0)
         })
       })
