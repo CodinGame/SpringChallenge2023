@@ -549,7 +549,8 @@ Note: when calculating how many ants to dispatch to a beacon, the result will be
 		<div class="blk">
 			<div class="title">Input for One Game Turn</div>
 			<!-- BEGIN level4 -->
-			<span class="statement-lineno">Next line:</span> <const>2</const> integers <var>myScore</var> and <var>oppScore</var> for the amount of crystal each player has.<br>
+			<div style="padding: 2px 0; color: #7cc576; background: rgba(124, 197, 118, 0.1)">
+				<span class="statement-lineno">Next line:</span> <const>2</const> integers <var>myScore</var> and <var>oppScore</var> for the amount of crystal each player has.</div>
 			<!-- END -->
 			<span class="statement-lineno">Next <var>numberOfCells</var> lines:</span> one line per
 			cell, ordered by <var>index</var>. <const>3</const> integers per cell:<br>
