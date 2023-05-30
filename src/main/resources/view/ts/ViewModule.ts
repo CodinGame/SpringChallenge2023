@@ -1302,10 +1302,7 @@ export class ViewModule {
     const richness: number[] = [...this.currentTempCellData.richness]
     const eventMapPerPlayer: Record<number, EventDto[]>[] = [{}, {}]
 
-    const antTotals: number[] = [
-      sum(ants[0]),
-      sum(ants[1])
-    ]
+    
 
     const consumedFrom = [new Set<number>(), new Set<number>()]
 
@@ -1396,6 +1393,10 @@ export class ViewModule {
 
     this.explosions.push(...[...shouldExplodeThisFrame].map(e => this.createExplosionParticleEffect(e)))
 
+    const antTotals: number[] = [
+      sum(ants[0]),
+      sum(ants[1])
+    ]
     const frameData: FrameData = {
       ...dto,
       ...frameInfo,
