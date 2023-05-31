@@ -10,6 +10,7 @@ interface Cell {
   neighbors: number[]
   myAnts: number
   oppAnts: number
+  index: number
 }
 
 const cells: Cell[] = []
@@ -28,6 +29,7 @@ for (let i = 0; i < numberOfCells; i++) {
 
   const cell: Cell = {
     type,
+    index: i,
     resources: initialResources,
     neighbors: [neigh0, neigh1, neigh2, neigh3, neigh4, neigh5].filter(id => id > -1),
     myAnts: 0,
@@ -55,9 +57,16 @@ while (true) {
 
 
   // WAIT | LINE <sourceIdx> <targetIdx> <strength> | BEACON <cellIdx> <strength> | MESSAGE <text>
-  const actions = []
+  const actions: string[] = []
 
-  // TODO: choose actions to perform and push them into actions
+  // TODO: choose actions to perform and push them into actions. E.g:
+  for (const cell of cells) {
+    if (cell.resources > 0) {
+      actions.push(`LINE ${myBases[0]} ${cell.index} 1`)
+      break
+    }
+  }
+
   // To debug: console.error('Debug messages...');
   if (actions.length === 0) {
     console.log('WAIT');

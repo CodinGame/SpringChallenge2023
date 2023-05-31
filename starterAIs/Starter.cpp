@@ -67,7 +67,15 @@ int main()
             cells[i].oppAnts = oppAnts;
         }
 
-        //TODO: choose actions to perform and add them into actions
+        //TODO: choose actions to perform and add them into actions. E.g:
+        for (const auto& cell : cells) {
+            if (cell.resources > 0) {
+                actions.push_back("LINE " + std::to_string(my_bases[0]) + " " + std::to_string(cell.index) + " 1");
+                break;
+            }
+        }
+
+
         // To debug: cerr << "Debug messages..." << endl;
         // WAIT | LINE <sourceIdx> <targetIdx> <strength> | BEACON <cellIdx> <strength> | MESSAGE <text>
         if (actions.length() == 0){

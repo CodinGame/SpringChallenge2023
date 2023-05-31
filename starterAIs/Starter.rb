@@ -71,7 +71,14 @@ loop do
   # WAIT | LINE <sourceIdx> <targetIdx> <strength> | BEACON <cellIdx> <strength> | MESSAGE <text>
   actions = []
 
-  # TODO: choose actions to perform and push them into actions
+  # TODO: choose actions to perform and push them into actions. E.g:
+  cells.each do |cell|
+    if cell.resources > 0
+      actions << "LINE #{my_bases[0]} #{cell.index} 1"
+      break
+    end
+  end
+
   # To debug: STDERR.puts "Debug messages..."
   if actions.length == 0
     puts 'WAIT'

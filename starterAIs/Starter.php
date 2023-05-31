@@ -34,15 +34,19 @@ for ($i = 0; $i < $numberOfCells; $i++)
 }
 
 fscanf(STDIN, "%d", $numberOfBases);
+$myBases = array();
+$oppBases = array();
 $inputs = explode(" ", fgets(STDIN));
 for ($i = 0; $i < $numberOfBases; $i++)
 {
     $myBaseIndex = intval($inputs[$i]);
+    $myBases[$i] = $myBaseIndex;
 }
 $inputs = explode(" ", fgets(STDIN));
 for ($i = 0; $i < $numberOfBases; $i++)
 {
     $oppBaseIndex = intval($inputs[$i]);
+    $oppBases[$i] = $oppBaseIndex;
 }
 
 // game loop
@@ -64,8 +68,16 @@ while (TRUE)
     // Write an action using echo(). DON'T FORGET THE TRAILING \n
     // To debug: error_log(var_export($var, true)); (equivalent to var_dump)
 
+    //TODO: choose actions to perform and push them into actions. E.g:
+    foreach ($cells as $cell) {
+        if ($cell->resources > 0) {
+            $actions[] = "LINE " . $myBases[0] . " " . $cell->index . " 1";
+            break;
+        }
+    }
+
     // WAIT | LINE <sourceIdx> <targetIdx> <strength> | BEACON <cellIdx> <strength> | MESSAGE <text>
-	  if ( count( $actions ) == 0 ) echo("WAIT\n");
+    if ( count( $actions ) == 0 ) echo("WAIT\n");
     else echo( implode( ';', $actions ) . "\n" );
 }
 

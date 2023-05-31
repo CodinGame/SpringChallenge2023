@@ -33,7 +33,7 @@ class Player
             Cell cell = new Cell();
             cell.index = i;
             cell.cell_type = type;
-            cell.ressources = initialResources;
+            cell.resources = initialResources;
 
             cell.neighbors = new int[6] { neigh0, neigh1, neigh2, neigh3, neigh4, neigh5 };
             
@@ -70,7 +70,7 @@ class Player
                 int myAnts = int.Parse(inputs[1]); // the amount of your ants on this cell
                 int oppAnts = int.Parse(inputs[2]); // the amount of opponent ants on this cell
 
-                cells[i].ressources = resources;
+                cells[i].resources = resources;
                 cells[i].my_ants = myAnts;
                 cells[i].opp_ants = oppAnts;
             }
@@ -83,11 +83,16 @@ class Player
             // ------- ! -----   Now you can generate a list of actions to do --------
             // WAIT | LINE <sourceIdx> <targetIdx> <strength> | BEACON <cellIdx> <strength> | MESSAGE <text>
 
+            foreach (var cell in cells)
+            {
+                if (cell.resources > 0)
+                {
+                    actions.Add($"LINE {my_bases[0]} {cell.index} 1");
+                    break;
+                }
+            }
 
-            // actions.Add("LINE 5 21 1");   
 
-
-            // WAIT | LINE <sourceIdx> <targetIdx> <strength> | BEACON <cellIdx> <strength> | MESSAGE <text>
             if (actions.Count == 0)
             {
                 Console.WriteLine("WAIT");
@@ -105,7 +110,7 @@ class Player
     {
         public int index { get; set; }
         public int cell_type { get; set; }
-        public int ressources { get; set; }
+        public int resources { get; set; }
         public int[]? neighbors { get; set; }
         public int my_ants { get; set; }
         public int opp_ants { get; set; }

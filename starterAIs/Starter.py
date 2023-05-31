@@ -62,7 +62,12 @@ while True:
     # WAIT | LINE <sourceIdx> <targetIdx> <strength> | BEACON <cellIdx> <strength> | MESSAGE <text>
     actions = []
 
-    # TODO: choose actions to perform and push them into actions
+    # TODO: choose actions to perform and push them into actions. E.g:
+    for cell in cells:
+        if cell.resources > 0:
+            actions.append(f'LINE {my_bases[0]} {cell.index} 1')
+            break
+
     # To debug: print("Debug messages...", file=sys.stderr, flush=True)
     if len(actions) == 0:
         print('WAIT')
