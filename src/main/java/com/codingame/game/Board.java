@@ -2,6 +2,7 @@ package com.codingame.game;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Deque;
 import java.util.HashMap;
@@ -161,6 +162,9 @@ public class Board {
                             .thenComparing(Function.identity())
                     )
                     .collect(Collectors.toList());
+            } else {
+                // Order by id of cell
+                Collections.sort(neighbours);
             }
             for (Integer neighbour : neighbours) {
                 Cell cell = cells.get(neighbour);

@@ -162,9 +162,9 @@ public class BoardGenerator {
         }
 
         // Place food
-        boolean SURPLUS_MODE = random.nextDouble() < 0.1; // 10% chance
-        boolean HUNGRY_MODE = !SURPLUS_MODE && random.nextDouble() < 0.08; // 8% chance
-        boolean FAMINE_MODE = !SURPLUS_MODE && !HUNGRY_MODE && random.nextDouble() < 0.04; // 4% chance
+        boolean SURPLUS_MODE = Config.FORCE_SINGLE_HILL ? true : (random.nextDouble() < 0.1); // 10% chance
+        boolean HUNGRY_MODE = Config.FORCE_SINGLE_HILL ? false : (!SURPLUS_MODE && random.nextDouble() < 0.08); // 8% chance
+        boolean FAMINE_MODE = Config.FORCE_SINGLE_HILL ? false : (!SURPLUS_MODE && !HUNGRY_MODE && random.nextDouble() < 0.04); // 4% chance
 
         if (!FAMINE_MODE) {
             List<CubeCoord> validFoodCoords = board.coords.stream()
@@ -181,14 +181,14 @@ public class BoardGenerator {
                 if (roll < 0.65) {
                     int amount = HUNGRY_MODE ? getSmallFoodAmount() : getLargeFoodAmount();
                     if (SURPLUS_MODE) {
-                        amount *= 10;
+                        amount *= Config.FORCE_SINGLE_HILL ? 5 : 10;
                     }
                     cell.setFoodAmount(amount);
                     board.get(coord.getOpposite()).setFoodAmount(amount);
                 } else {
                     int amount = HUNGRY_MODE ? getSmallFoodAmount() : getSmallFoodAmount() / 2;
                     if (SURPLUS_MODE) {
-                        amount *= 10;
+                        amount *= Config.FORCE_SINGLE_HILL ? 5 : 10;
                     }
                     cell.setFoodAmount(amount);
                     board.get(coord.getOpposite()).setFoodAmount(amount);
