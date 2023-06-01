@@ -166,7 +166,7 @@
 					comportent comme des <b>poids</b> qui déterminent la <b>proportion de fourmis</b> qui seront réparties sur
 					chaque balise.</p>
 
-				<p>Autrement dit, <b>plus</b> la balise sera <var>puissante</var>, plus le <b>percentage</b>
+				<p>Autrement dit, <b>plus</b> la balise sera <var>puissante</var>, plus le <b>pourcentage</b>
 					de vos fourmis allant sur cette balise sera élevé.</p>
 
 				<h3 style="font-size: 14px;
