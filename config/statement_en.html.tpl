@@ -538,7 +538,7 @@ Note: when calculating how many ants to dispatch to a beacon, the result will be
 			<!-- BEGIN level1 -->
 			which equals <const>1</const> for this league.<br>
 			<!-- END -->
-			<!-- BEGIN level2 level3 level 4 -->
+			<!-- BEGIN level2 level3 level4 -->
 			containing the number of bases for each player.<br>
 			<!-- END -->
 			<span class="statement-lineno">Next line:</span> <var>numberOfBases</var> integers for the cell indices
